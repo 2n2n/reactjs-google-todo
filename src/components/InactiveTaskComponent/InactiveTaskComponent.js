@@ -22,20 +22,24 @@ class InactiveTaskComponent extends Component {
     render() {        
         return (
             <li>
-                <div className="input-container">
-                    <div className="checkable" onClick={(e) => this.props.done(this.props.data)}>
-                        <CheckIcon color="primary" className="checked-ico" />
-                        <UncheckedIcon color="inherit" className="unchecked-ico" />
-                    </div>
-                    <div className="click-edit" onClick={this.editItem}>
-                        <div className="input-element">
-                            {this.props.data.text}
+                 <div className="input-container">
+                    <div className="checkable content-padding" onClick={(e) => this.props.done(this.props.data)}>
+                        <div>
+                            <CheckIcon color="primary" className="checked-ico" />
+                            <UncheckedIcon color="inherit" className="unchecked-ico" />
                         </div>
-                        <div className="edit-btn">
-                            <EditIcon color="inherit" />
+                        </div>
+                        <div className="click-edit" onClick={this.editItem}>
+                            <div className="input-element">
+                                {this.props.data.text}
+                            </div>
+                            <div className="edit-btn">
+                                <div>
+                                    <EditIcon color="inherit"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <span className="bar"></span>
             </li>
         );

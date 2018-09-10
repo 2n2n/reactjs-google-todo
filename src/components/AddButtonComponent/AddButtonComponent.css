@@ -11,3 +11,7 @@
 .button:hover {
     background-color: #f8f9fa !important; 
 }
+svg {
+    color: #4285f4 !important;
+    fill: currentColor;
+}

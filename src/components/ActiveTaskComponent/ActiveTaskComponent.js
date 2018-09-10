@@ -45,8 +45,10 @@ class ActiveTaskComponent extends Component {
             <li className={this.state.activate}>
                 <div className="input-container">
                     <div className="checkable" onClick={(e) => this.props.done(this.props.data)}>
-                        <CheckIcon color="primary" className="checked-ico" />
-                        <UncheckedIcon color="inherit" className="unchecked-ico" />
+                        <div>
+                            <CheckIcon color="primary" className="checked-ico" />
+                            <UncheckedIcon color="inherit" className="unchecked-ico" />
+                        </div>
                     </div>
                     <div className="click-edit" onClick={this.editItem}>
                         <div className="input-element">
@@ -59,7 +61,9 @@ class ActiveTaskComponent extends Component {
                                 onBlur={(e) => this.props.onBlur(e, this.props.data)} />
                         </div>
                         <div className="edit-btn">
-                            <EditIcon color="inherit" />
+                            <div>
+                                <EditIcon color="inherit" />
+                            </div>
                         </div>
                     </div>
                 </div>

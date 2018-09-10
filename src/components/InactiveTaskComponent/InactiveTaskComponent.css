@@ -1,8 +1,4 @@
 
-.checkable {
-    flex-shrink: 0;
-    margin-right: 15px;
-}
 .checkable > CheckIcon,
 .checkable > UncheckedIcon {
     max-height: 2em;

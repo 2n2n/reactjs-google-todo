@@ -38,6 +38,7 @@ class TaskListComponent extends Component {
     render() { 
         const todoItems = this.props.tasks.map((task) => (
             task === this.props.activeTask ?
+            // true ?
                 <ActiveTaskComponent
                     key={task.id}
                     data={task}
