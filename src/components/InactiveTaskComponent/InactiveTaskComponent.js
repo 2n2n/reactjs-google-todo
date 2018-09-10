@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import EditIcon from '@material-ui/icons/Edit';
+import { connect } from 'react-redux';
+import EditIcon from '@material-ui/icons/Edit';
 import CheckIcon from '@material-ui/icons/Check';
 import UncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-
-
 import './InactiveTaskComponent.css';
-// import { Grid } from '@material-ui/core';
 import '../hover.css';
+import { deleteToDo } from '../../store/actions/ToDoActions';
+
+
 class InactiveTaskComponent extends Component {
     constructor(props) {
         super(props);
@@ -19,22 +16,38 @@ class InactiveTaskComponent extends Component {
         }
     }
 
+    editItem = (e) => {
+        this.props.onClick(e, this.props.data)
+    }
     render() {        
         return (
-            <li onClick={(e) => this.props.onClick(e, this.props.data)}>
+            <li>
                 <div className="input-container">
-                    <div className="checkable" onClick={(e) => this.props.onClick(e, this.props.data)}>
+                    <div className="checkable" onClick={(e) => this.props.done(this.props.data)}>
                         <CheckIcon color="primary" className="checked-ico" />
                         <UncheckedIcon color="inherit" className="unchecked-ico" />
                     </div>
-                    <div className="input-element">
-                        { this.props.data.text }
+                    <div className="click-edit" onClick={this.editItem}>
+                        <div className="input-element">
+                            {this.props.data.text}
+                        </div>
+                        <div className="edit-btn">
+                            <EditIcon color="inherit" />
+                        </div>
                     </div>
                 </div>
+                <span className="bar"></span>
             </li>
         );
     }
 }
 
+const mapStateToProps = (state) => ({
 
-export default InactiveTaskComponent;
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    done: (item) => dispatch(deleteToDo(item))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(InactiveTaskComponent);

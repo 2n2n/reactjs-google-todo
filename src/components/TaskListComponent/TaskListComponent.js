@@ -5,15 +5,7 @@ import { addToDo, editToDo, saveToDo } from '../../store/actions/ToDoActions';
 import { clearState } from '../../store/actions/ToDoStateAction';
 import InactiveTaskComponent from '../InactiveTaskComponent/InactiveTaskComponent';
 import ActiveTaskComponent from '../ActiveTaskComponent/ActiveTaskComponent';
-
-// import {
-//     toggleEditMode,
-//     selectAndEditItem,
-//     clearState,
-//     removeItemAndClearSelected
-// } from '../../store/actions/ToDoStateAction';
-
-// import { EDIT_MODE_ON } from '../../store/actions/actionTypes';
+import './TaskListComponent.css';
 
 class TaskListComponent extends Component {
     newText = "";
@@ -32,6 +24,7 @@ class TaskListComponent extends Component {
     }
 
     onKeyUpHandler = (e, task) => { // enter key
+        e.preventDefault();
         if (e.which === 27) {
             this.props.cancel();
         }
@@ -49,16 +42,17 @@ class TaskListComponent extends Component {
                     key={task.id}
                     data={task}
                     onBlur={this.onBlurHandler}
-                    onKeyUp={this.onKeyUpHandler}/> :
+                    onKeyUp={this.onKeyUpHandler}
+                /> :
                 <InactiveTaskComponent
                     key={task.id}
                     data={task}
                     onClick={this.onClickHandler}/>
         ));
         return (
-            <List>
+            <ul>
                 {todoItems}
-            </List> 
+            </ul> 
         )
     }
 }
