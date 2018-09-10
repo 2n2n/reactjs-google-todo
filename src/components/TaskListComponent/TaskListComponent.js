@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import List from '@material-ui/core/List';
 import { addToDo, editToDo, saveToDo } from '../../store/actions/ToDoActions';
 import { clearState } from '../../store/actions/ToDoStateAction';
 import InactiveTaskComponent from '../InactiveTaskComponent/InactiveTaskComponent';
@@ -38,7 +37,6 @@ class TaskListComponent extends Component {
     render() { 
         const todoItems = this.props.tasks.map((task) => (
             task === this.props.activeTask ?
-            // true ?
                 <ActiveTaskComponent
                     key={task.id}
                     data={task}

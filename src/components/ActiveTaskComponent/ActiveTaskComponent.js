@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Input from '@material-ui/core/Input';
-import InputAdornment from "@material-ui/core/InputAdornment";
 import EditIcon from '@material-ui/icons/Edit';
 import CheckIcon from '@material-ui/icons/Check';
 import UncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import './ActiveTaskComponent.css'
 import { clearState } from '../../store/actions/ToDoStateAction';
-import Paper from '@material-ui/core/Paper';
 import '../hover.css';
 import { deleteToDo } from '../../store/actions/ToDoActions';
 
@@ -35,7 +30,7 @@ class ActiveTaskComponent extends Component {
     }
 
     noEnterKey = (e) => {
-        if (e.which == 13) {
+        if (e.which === 13) {
             e.preventDefault();
         }
     }
@@ -69,20 +64,6 @@ class ActiveTaskComponent extends Component {
                 </div>
                 <span className="bar"></span>
             </li>
-            // <Paper square={true} elevation={2}>
-            //     <ListItem className="list-item">
-            //         <Input
-            //             inputRef={(ref) => this.ref = ref}
-            //             className='inputWithAdronment'
-            //             id="input-with-icon-adornment"
-            //             defaultValue={this.props.data.text}
-            //             startAdornment={sAdornment}
-            //             endAdornment={eAdornment}
-            //             onKeyUp={ (e) => this.props.onKeyUp(e, this.props.data) }
-            //             onBlur={(e) => this.props.onBlur(e, this.props.data)}
-            //         />
-            //     </ListItem>
-            // </Paper>
         );
     }
 };
