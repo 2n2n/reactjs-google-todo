@@ -60,26 +60,6 @@ class TaskListComponent extends Component {
                 {todoItems}
             </List> 
         )
-        // const tasks = this.props.tasks.map((task) => (
-        //     <AppTaskItem
-        //         key={task.id}
-        //         edit={task.id === this.props.selectedTask}
-        //         data={task}
-        //         onBlur={this.onBlurHandler}
-        //         onFocus={this.onFocusHandler}
-        //         onKeyUp={this.onKeyUpHandler}
-        //         onClick={this.onClickHandler}
-        //     />
-        // ));
-
-        // return (
-        //     <div>
-        //         <h1>{ this.props.inputMode ? "edit mode on": "edit mode off"}</h1>
-        //         <ul>
-        //             { tasks }
-        //         </ul>
-        //     </div>
-        // )
     }
 }
 
