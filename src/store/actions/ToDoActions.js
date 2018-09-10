@@ -1,37 +1,57 @@
-import { ADD_TODO, EDIT_TODO, DELETE_TODO, TOGGLE_CHECK_TODO, SELECT_TASK_ITEM, EDIT_MODE_ON } from './actionTypes';
-import { toggleEditMode } from './ToDoStateAction';
-let itemCount = 0;
+import {
+    ADD_TODO,
+    EDIT_TODO,
+    DELETE_TODO,
+    SAVE_TODO,
+    EDIT_MODE_ON,
+    SELECT_TASK_ITEM
+} from './actionTypes';
+import { clearState } from './ToDoStateAction';
 
-export const addToDo = (itemText = "") => { 
-    let itemId = itemCount++;
-    return (dispatch) => {
-        dispatch(toggleEditMode(EDIT_MODE_ON));
-        dispatch(selectItem(itemId));
+export const addToDo = (id, text = null) => { 
+    let item = {
+        id: id,
+        text: text
+    };
+    
+    return function (dispatch) { 
+        // add an item to the list..
         dispatch({
             type: ADD_TODO,
-            id: itemId,
-            text: itemText
+            item: item
         });
+        // select the item
+        dispatch({
+            type: SELECT_TASK_ITEM,
+            item: item
+        })
     }
 };
 
-export const editToDo = (itemId, itemText) => ({
-    type: EDIT_TODO,
-    id: itemId,
-    text: itemText
-});
+export const saveToDo = (item) => {
+    return function (dispatch) {
+        // save the changes
+        dispatch({
+            type: SAVE_TODO,
+            item: item
+        });
+        dispatch(clearState())
+    };
+}
+export const editToDo = (item) => { 
+    return function (dispatch) {
+        dispatch({
+            type: EDIT_TODO,
+            item: item
+        });
+        dispatch({
+            type: EDIT_MODE_ON
+        })
+    }
+};
 
-export const deleteToDo = (itemId) => ({
+export const deleteToDo = (item) => ({
     type: DELETE_TODO,
-    id: itemId
+    item: item
 });
 
-export const toggleCheckToDo = (itemId) => ({
-    type: TOGGLE_CHECK_TODO,
-    id: itemId
-});
-
-export const selectItem = (itemId) => ({
-    type: SELECT_TASK_ITEM,
-    id: itemId
-})

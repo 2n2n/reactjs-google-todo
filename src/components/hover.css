@@ -1,0 +1,21 @@
+.hideable {
+    visibility: hidden;
+}
+
+.listItem:hover .hideable, .list-item:hover .hideable {
+    visibility: visible;
+}
+
+.checkable .checked-ico{
+    display: none; 
+}
+.checkable:hover .checked-ico {
+    display: block;
+}
+.checkable .unchecked-ico{
+    display: block;
+}
+.checkable:hover .unchecked-ico{
+    display: none;
+}
+

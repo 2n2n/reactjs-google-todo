@@ -1,0 +1,13 @@
+.button {
+    border-radius: 50px !important;
+    width: 70%;
+    margin-top: .7em !important;
+    margin-left: 1em !important;
+}
+.button > span:first-child {
+    justify-content: flex-start;
+}
+
+.button:hover {
+    background-color: #f8f9fa !important; 
+}

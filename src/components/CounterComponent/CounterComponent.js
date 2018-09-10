@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class TaskCounter extends Component {
+class CounterComponent extends Component {
     
     render = () => {
         console.log(this.props.taskCount)
         return (
             <span>
                 ({this.props.taskCount})
-        </span>
+            </span>
         )
     };
 }
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => {
         taskCount: state.tasks.length
     }
 }
-export default connect(mapStateToProps)(TaskCounter);
+export default connect(mapStateToProps)(CounterComponent);

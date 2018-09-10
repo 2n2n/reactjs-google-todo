@@ -1,17 +1,19 @@
 import React from 'react';
-import AppHeader from "./components/AppHeader/AppHeader";
-import AppAddTask from './components/AppAddTask/AppAddTask';
-import AppTaskList from './components/AppTaskList/AppTaskList';
 import './App.css';
 
 
+import Divider from '@material-ui/core/Divider';
+
+import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
+import TaskListComponent from './components/TaskListComponent/TaskListComponent';
+import AddButtonComponent from './components/AddButtonComponent/AddButtonComponent';
+
 const App = () => (
   <div>
-    <AppHeader />
-    <div>
-      <AppAddTask />
-      <AppTaskList />
-    </div>
+    <HeaderComponent />
+      <Divider />
+      <AddButtonComponent />
+      <TaskListComponent />
   </div>
 );
 

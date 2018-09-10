@@ -1,0 +1,12 @@
+.inputWithAdronment {
+    flex: 1;
+    padding-bottom: 12px;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+.list-item {
+    background-color: #f8f9fa !important;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
